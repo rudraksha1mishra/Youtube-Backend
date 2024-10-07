@@ -1,10 +1,18 @@
-require('dotenv').config()
+require('dotenv').config();
 const express = require('express');
 const { connectDB } = require('./db/index.js');
 const app = express();
 // ifi function
-
-connectDB();
+console.log(process.env.PORT);
+connectDB()
+.then(()=>{
+    app.listen(process.env.PORT || 8000 ,()=>{
+        console.log(`The app is listening to the ${process.env.PORT}`);
+    })
+})
+.catch((error)=>{
+    console.log("error",error.message);
+})
 
 
 

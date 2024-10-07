@@ -1,2 +1,2 @@
 const DB_NAME = "youtube";
-module.exports = DB_NAME;
+module.exports = {DB_NAME};
